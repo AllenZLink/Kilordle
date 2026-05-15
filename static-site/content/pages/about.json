@@ -1,0 +1,20 @@
+{
+  "slug": "about",
+  "title": "About Kilordle",
+  "description": "Kilordle is a large-scale Wordle-inspired browser puzzle where one guess plays across many hidden words at once.",
+  "sections": [
+    {
+      "title": "What It Is",
+      "paragraphs": [
+        "Kilordle keeps the familiar five-letter word guessing loop and scales it into a multi-board challenge. Each submitted word is compared with every active puzzle, so one guess can make progress across the whole board.",
+        "The homepage hosts the original interactive game. This page exists to explain the project and give the site a clearer structure for players and search engines."
+      ]
+    },
+    {
+      "title": "How The Site Is Built",
+      "paragraphs": [
+        "The game itself runs as a client-rendered React app. The supporting pages and text around the game are generated into static HTML during the build."
+      ]
+    }
+  ]
+}

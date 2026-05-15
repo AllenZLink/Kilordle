@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Wordle is fun. How about a thousand of them at the same time. How does that feel?"
+    />
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="Kilordle by jones" />
+    <meta
+      property="og:image"
+      content="https://jonesnxt.github.io/kilordle/thumbnail.png"
+    />
+    <meta property="og:url" content="https://jonesnxt.github.io/kilordle" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--  Non-Essential, But Recommended -->
+    <meta
+      property="og:description"
+      content="Wordle is fun. How about a thousand of them at the same time. How does that feel?"
+    />
+    <meta property="og:site_name" content="Kilordle" />
+    <meta name="twitter:image:alt" content="This was pain" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/static-site.css" />
+
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMDVD8PSSZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TMDVD8PSSZ');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6699304600025564"
+    crossorigin="anonymous"></script>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Kilordle</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- STATIC_SITE_HEADER_START -->
+<header id="site-header"><div class="site-brand"><div class="site-brand-name">Kilordle</div><div class="site-brand-tagline">A thousand Wordles at once</div></div><nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/#how-to-play">How to Play</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav><details class="site-mobile-menu"><summary aria-label="Open navigation menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></summary><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/#how-to-play">How to Play</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav></details></header>
+    <!-- STATIC_SITE_HEADER_END -->
+    <div id="root"></div>
+    <!-- STATIC_SITE_CONTENT_START -->
+<main id="game-guide"><section class="guide-intro" aria-labelledby="game-guide-title"><p class="guide-eyebrow">Wordle, scaled up</p><h1 id="game-guide-title">Play 1000 Wordle puzzles with the same guesses.</h1><p>Kilordle turns the familiar five-letter word puzzle into a large multi-board challenge. Each guess is checked against every active hidden word.</p><p>Solved words disappear from the remaining count, and the board keeps showing a focused sample of the puzzles still in progress.</p></section><div class="guide-sections"><section class="guide-section" id="how-to-play"><h2>How to Play</h2><ul><li>Enter a valid five-letter word using your keyboard or the on-screen keys.</li><li>Press Enter or GO to submit the guess to every active puzzle.</li><li>Green letters are correct and in the right position. Yellow letters are in the word but in another position.</li><li>Keep guessing until the remaining count reaches zero.</li></ul></section><section class="guide-section" id="strategy"><h2>Strategy Tips</h2><ul><li>Start with words that reveal common vowels and frequent consonants.</li><li>Watch the remaining boards for repeated patterns instead of solving only one board at a time.</li><li>Use later guesses to clean up groups of words that share similar letter positions.</li></ul></section><section class="guide-section" id="faq"><h2>FAQ</h2><ul><li>The game runs in your browser and the puzzle board is rendered by the original React app.</li><li>The page content around the game is generated into the HTML during the build.</li><li>The main game is available at the root URL: /.</li></ul></section></div></main>
+    <!-- STATIC_SITE_CONTENT_END -->
+    <!-- STATIC_SITE_FOOTER_START -->
+<footer id="site-footer"><div class="site-footer-inner"><div class="site-footer-main"><section class="site-footer-brand" aria-label="About Kilordle"><div class="site-footer-logo-row"><span class="site-footer-mark" aria-hidden="true"></span><span class="site-footer-name">Kilordle</span></div><p>A large-scale Wordle-inspired puzzle where one guess plays across many hidden words at once.</p></section><div class="site-footer-columns"><nav class="site-footer-column" aria-label="Play"><h2>Play</h2><a href="/">Game</a><a href="/#how-to-play">How to Play</a><a href="/#strategy">Strategy</a></nav><nav class="site-footer-column" aria-label="Site"><h2>Site</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/changelog/">Change Log</a></nav><nav class="site-footer-column" aria-label="About"><h2>About</h2><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a><a href="https://github.com/jonesnxt/kilordle">Original GitHub</a></nav></div></div><div class="site-footer-bottom"><span>© 2026 Kilordle</span><span>Wordle-inspired browser puzzle</span><span>Original game by jones</span></div></div></footer>
+    <!-- STATIC_SITE_FOOTER_END -->
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

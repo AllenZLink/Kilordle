@@ -1,0 +1,22 @@
+{
+  "slug": "contact",
+  "title": "Contact Us",
+  "description": "Use this page for questions, corrections, feedback, or site-related requests.",
+  "sections": [
+    {
+      "title": "General Contact",
+      "paragraphs": [
+        "For now, the best public reference for the original game is the GitHub project linked in the footer.",
+        "If you operate this site, replace this section with your preferred support email, contact form link, or business address."
+      ]
+    },
+    {
+      "title": "Helpful Details To Include",
+      "items": [
+        "The page or feature your message is about.",
+        "Your browser and device if you are reporting a display or gameplay issue.",
+        "A short description of what happened and what you expected to happen."
+      ]
+    }
+  ]
+}

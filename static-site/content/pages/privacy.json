@@ -1,0 +1,27 @@
+{
+  "slug": "privacy",
+  "title": "Privacy Policy",
+  "description": "This page explains the basic privacy posture for this static Kilordle site.",
+  "updated": "2026-05-15",
+  "sections": [
+    {
+      "title": "Information We Collect",
+      "paragraphs": [
+        "The game can run in your browser without requiring an account. The static pages do not ask you to submit personal information.",
+        "The page template includes third-party analytics and advertising scripts. Those providers may collect usage information according to their own policies."
+      ]
+    },
+    {
+      "title": "How Information Is Used",
+      "paragraphs": [
+        "Usage information can help understand site traffic, diagnose problems, and improve the player experience."
+      ]
+    },
+    {
+      "title": "Your Choices",
+      "paragraphs": [
+        "You can use browser settings, content blockers, or privacy tools to limit cookies, analytics, and advertising scripts."
+      ]
+    }
+  ]
+}

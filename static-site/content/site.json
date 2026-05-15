@@ -1,0 +1,84 @@
+{
+  "brand": "Kilordle",
+  "siteUrl": "https://jonesnxt.github.io/kilordle",
+  "tagline": "A thousand Wordles at once",
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "How to Play",
+      "href": "/#how-to-play"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    }
+  ],
+  "footer": {
+    "description": "A large-scale Wordle-inspired puzzle where one guess plays across many hidden words at once.",
+    "columns": [
+      {
+        "title": "Play",
+        "links": [
+          {
+            "label": "Game",
+            "href": "/"
+          },
+          {
+            "label": "How to Play",
+            "href": "/#how-to-play"
+          },
+          {
+            "label": "Strategy",
+            "href": "/#strategy"
+          }
+        ]
+      },
+      {
+        "title": "Site",
+        "links": [
+          {
+            "label": "About",
+            "href": "/about/"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact/"
+          },
+          {
+            "label": "Change Log",
+            "href": "/changelog/"
+          }
+        ]
+      },
+      {
+        "title": "About",
+        "links": [
+          {
+            "label": "Privacy Policy",
+            "href": "/privacy/"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "/terms/"
+          },
+          {
+            "label": "Original GitHub",
+            "href": "https://github.com/jonesnxt/kilordle"
+          }
+        ]
+      }
+    ],
+    "legal": [
+      "© 2026 Kilordle",
+      "Wordle-inspired browser puzzle",
+      "Original game by jones"
+    ]
+  }
+}

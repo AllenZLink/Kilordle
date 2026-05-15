@@ -1,0 +1,27 @@
+{
+  "slug": "terms",
+  "title": "Terms of Service",
+  "description": "These terms describe the basic conditions for using this Kilordle site.",
+  "updated": "2026-05-15",
+  "sections": [
+    {
+      "title": "Use Of The Site",
+      "paragraphs": [
+        "This site is provided as a browser-based word puzzle experience. You may use it for personal entertainment and casual play.",
+        "Do not misuse the site, interfere with its operation, or attempt to disrupt access for other users."
+      ]
+    },
+    {
+      "title": "No Warranty",
+      "paragraphs": [
+        "The site is provided as is. Gameplay, availability, content, and external services may change or stop working without notice."
+      ]
+    },
+    {
+      "title": "External Links",
+      "paragraphs": [
+        "The site may link to external resources such as the original GitHub project. External sites are controlled by their own operators."
+      ]
+    }
+  ]
+}

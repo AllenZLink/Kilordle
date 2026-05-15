@@ -1,0 +1,21 @@
+{
+  "slug": "changelog",
+  "title": "Change Log",
+  "description": "A record of notable site updates and content changes.",
+  "sections": [
+    {
+      "title": "Current Version",
+      "items": [
+        "Added static site pages for About, Contact, Terms of Service, Privacy Policy, and Change Log.",
+        "Added static React rendering for page content during the build.",
+        "Kept the original game mounted at the root URL."
+      ]
+    },
+    {
+      "title": "Future Updates",
+      "paragraphs": [
+        "Use this page to document gameplay updates, content changes, policy revisions, or layout improvements."
+      ]
+    }
+  ]
+}

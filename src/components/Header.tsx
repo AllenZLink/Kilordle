@@ -30,8 +30,8 @@ function Header({
     <Container>
       <Title>
         Kilordle by{' '}
-        <a href="https://github.com/jonesnxt/kilordle" target="_blank">
-          jones
+        <a href="https://github.com/AllenZLink/Kilordle" target="_blank">
+          AllenZlink
         </a>
       </Title>
       <Stats>

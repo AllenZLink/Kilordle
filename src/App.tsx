@@ -3,7 +3,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { Header, Keyboard, Puzzles, EndScreen } from './components';
+import { Header, HowToPlayModal, Keyboard, Puzzles, EndScreen } from './components';
 import { checkValidity } from './util/checkValidity';
 import { generateWordlist } from './util/generateWordlist';
 import { sortByValue } from './util/sortByValue';
@@ -27,6 +27,13 @@ function App() {
   const [guesslist, setGuesslist] = useState<string[]>([]);
   const [progressHistory, setProgressHistory] = useState<number[]>([]);
   const [working, setWorking] = useState('');
+  const [showTutorial, setShowTutorial] = useState(() => {
+    try {
+      return localStorage.getItem('kilordle-how-to-play-seen') !== 'true';
+    } catch {
+      return true;
+    }
+  });
 
   const maxGuesses = 1005;
   const expired = guesslist.length >= maxGuesses;
@@ -60,12 +67,19 @@ function App() {
     function keyEvent(ev: KeyboardEvent) {
       addKey(ev.key);
     }
-    if (!expired) {
+    if (!expired && !showTutorial) {
       window.addEventListener('keydown', keyEvent);
       if (working.length > 5) setWorking((tmp) => tmp.slice(0, 5));
       return () => window.removeEventListener('keydown', keyEvent);
     }
-  }, [working]);
+  }, [working, showTutorial]);
+
+  function closeTutorial() {
+    try {
+      localStorage.setItem('kilordle-how-to-play-seen', 'true');
+    } catch { }
+    setShowTutorial(false);
+  }
 
   function getUsedLetters() {
     var letters: string[] = [];
@@ -95,6 +109,7 @@ function App() {
 
   return (
     <div className="App">
+      {showTutorial ? <HowToPlayModal onClose={closeTutorial} /> : null}
       <Container>
         <Content>
           <Header

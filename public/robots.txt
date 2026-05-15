@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://jonesnxt.github.io/kilordle/sitemap.xml
+Sitemap: https://allenzlink.github.io/Kilordle/sitemap.xml

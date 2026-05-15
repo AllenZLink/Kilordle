@@ -21,15 +21,50 @@ export type SiteContent = {
 };
 
 export type HomeContent = {
+  updated: string;
+  howToPlay: {
+    id: string;
+    steps: Array<{
+      body: string;
+      demo:
+        | {
+            letters: string[];
+            type: 'word';
+          }
+        | {
+            tiles: Array<{
+              letter: string;
+              state: 'absent' | 'correct' | 'present';
+            }>;
+            type: 'tiles';
+          }
+        | {
+            after: number;
+            before: number;
+            label: string;
+            type: 'remaining';
+          }
+        | {
+            items: string[];
+            type: 'flow';
+          };
+      title: string;
+    }>;
+    title: string;
+  };
   intro: {
     eyebrow: string;
     title: string;
     paragraphs: string[];
   };
   sections: Array<{
+    faqs?: Array<{
+      answer: string;
+      question: string;
+    }>;
     id: string;
+    paragraphs: string[];
     title: string;
-    items: string[];
   }>;
 };
 

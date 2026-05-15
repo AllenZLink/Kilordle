@@ -128,7 +128,7 @@ function EndScreen({ progressHistory }: { progressHistory: number[] }) {
     context.textAlign = 'center';
     context.font = `${mmts.urlHeight}px ${fontFamily}`;
     context.fillText(
-      'https://jonesnxt.github.io/kilordle/',
+      'https://allenzlink.github.io/Kilordle/',
       mmts.leftGutter + mmts.gridWidth / 2,
       mmts.nonTitleHeight - mmts.margin
     );

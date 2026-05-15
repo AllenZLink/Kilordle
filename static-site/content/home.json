@@ -1,4 +1,5 @@
 {
+  "updated": "2026-05-15",
   "intro": {
     "eyebrow": "Wordle, scaled up",
     "title": "Play 1000 Wordle puzzles with the same guesses.",
@@ -7,33 +8,95 @@
       "Solved words disappear from the remaining count, and the board keeps showing a focused sample of the puzzles still in progress."
     ]
   },
+  "howToPlay": {
+    "id": "how-to-play",
+    "title": "How to Play",
+    "steps": [
+      {
+        "title": "Make one five-letter guess",
+        "body": "Start by typing any valid five-letter word. In Kilordle, that one guess is not aimed at a single answer; it is submitted to every active puzzle at the same time.",
+        "demo": {
+          "type": "word",
+          "letters": ["C", "R", "A", "N", "E"]
+        }
+      },
+      {
+        "title": "Read the clues on each board",
+        "body": "Every board answers with its own clue pattern. A dark tile means the letter is correct and in the right position, a marked light tile means the letter appears elsewhere, and a pale tile means that letter does not help that board.",
+        "demo": {
+          "type": "tiles",
+          "tiles": [
+            {
+              "letter": "C",
+              "state": "correct"
+            },
+            {
+              "letter": "R",
+              "state": "absent"
+            },
+            {
+              "letter": "A",
+              "state": "present"
+            },
+            {
+              "letter": "N",
+              "state": "absent"
+            },
+            {
+              "letter": "E",
+              "state": "correct"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Watch solved words leave the board",
+        "body": "When your guess exactly matches one of the hidden words, that puzzle is cleared from the remaining pool. The number at the top drops, so you can see the whole challenge shrinking.",
+        "demo": {
+          "type": "remaining",
+          "label": "Remaining",
+          "before": 1000,
+          "after": 997
+        }
+      },
+      {
+        "title": "Use shared clues to finish faster",
+        "body": "The goal is to clear every hidden word with as few guesses as possible. Strong guesses reveal letters for many boards, then later guesses separate similar words that are still unresolved.",
+        "demo": {
+          "type": "flow",
+          "items": ["One guess", "Many boards update", "Fewer words remain"]
+        }
+      }
+    ]
+  },
   "sections": [
-    {
-      "id": "how-to-play",
-      "title": "How to Play",
-      "items": [
-        "Enter a valid five-letter word using your keyboard or the on-screen keys.",
-        "Press Enter or GO to submit the guess to every active puzzle.",
-        "Green letters are correct and in the right position. Yellow letters are in the word but in another position.",
-        "Keep guessing until the remaining count reaches zero."
-      ]
-    },
     {
       "id": "strategy",
       "title": "Strategy Tips",
-      "items": [
-        "Start with words that reveal common vowels and frequent consonants.",
-        "Watch the remaining boards for repeated patterns instead of solving only one board at a time.",
-        "Use later guesses to clean up groups of words that share similar letter positions."
+      "paragraphs": [
+        "Good Kilordle play is less about solving one board perfectly and more about gathering useful information for the whole field. Early guesses should cover common vowels and frequent consonants, because every confirmed letter can help many boards at once.",
+        "As the remaining count drops, patterns become more important. Look for clusters of boards that share letter positions or missing letters, then choose guesses that separate those possibilities. A strong late-game guess often clears several similar words rather than chasing a single obvious answer."
       ]
     },
     {
       "id": "faq",
       "title": "FAQ",
-      "items": [
-        "The game runs in your browser and the puzzle board is rendered by the original React app.",
-        "The page content around the game is generated into the HTML during the build.",
-        "The main game is available at the root URL: /."
+      "paragraphs": [
+        "These quick answers cover how the game and the surrounding site work."
+      ],
+      "faqs": [
+        {
+          "question": "Is Kilordle the same as regular Wordle?",
+          "answer": "Kilordle uses the familiar five-letter guessing rules, but each guess is checked across many active puzzles at once. The challenge is to use shared clues efficiently rather than solving only one board."
+        },
+        {
+          "question": "Does the game need a server to run?",
+          "answer": "No. The game runs in your browser as a client-rendered React app. The supporting guide and policy pages are generated into static HTML during the build."
+        },
+        {
+          "question": "Where is the main game page?",
+          "answer": "The main game is available at the root URL. Supporting pages such as About, Contact, Privacy Policy, Terms of Service, and Change Log are separate static pages."
+        }
       ]
     }
   ]

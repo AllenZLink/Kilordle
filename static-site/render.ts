@@ -6,7 +6,7 @@ import renderHomeFragments from './pages/home';
 import renderStaticPage from './pages/staticPage';
 import type { HomeContent, SiteContent, StaticPageContent } from './types';
 
-const markerNames = ['HEADER', 'CONTENT', 'FOOTER'] as const;
+const markerNames = ['HEADER', 'CONTENT', 'FOOTER', 'JSONLD'] as const;
 const staticPageFiles = [
   'about',
   'contact',
@@ -68,6 +68,75 @@ function getRoutePath(slug?: string) {
   return slug ? `/${slug}/` : '/';
 }
 
+function safeJsonLd(value: unknown) {
+  return JSON.stringify(value, null, 2).replace(/</g, '\\u003c');
+}
+
+function getHomeFaqs(home: HomeContent) {
+  return (
+    home.sections.find((section) => section.id === 'faq')?.faqs ?? []
+  );
+}
+
+function renderHomeJsonLd({
+  home,
+  site,
+}: {
+  home: HomeContent;
+  site: SiteContent;
+}) {
+  const baseUrl = normalizeSiteUrl(site.siteUrl);
+  const homeUrl = `${baseUrl}/`;
+  const faqItems = getHomeFaqs(home);
+  const graph = [
+    {
+      '@type': 'WebPage',
+      '@id': `${homeUrl}#webpage`,
+      url: homeUrl,
+      name: 'Kilordle',
+      description: home.intro.paragraphs[0],
+      dateModified: home.updated,
+      breadcrumb: {
+        '@id': `${homeUrl}#breadcrumb`,
+      },
+      mainEntity: {
+        '@id': `${homeUrl}#faq`,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${homeUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: homeUrl,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${homeUrl}#faq`,
+      mainEntity: faqItems.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ];
+
+  return `<script type="application/ld+json">
+${safeJsonLd({
+  '@context': 'https://schema.org',
+  '@graph': graph,
+})}
+</script>`;
+}
+
 function generateHomePage(rootDir: string) {
   const indexPath = path.join(rootDir, 'public', 'index.html');
   const contentDir = path.join(rootDir, 'static-site', 'content');
@@ -92,6 +161,7 @@ function generateHomePage(rootDir: string) {
     'FOOTER',
     renderToStaticMarkup(fragments.footer)
   );
+  html = replaceMarker(html, 'JSONLD', renderHomeJsonLd({ home, site }));
   fs.writeFileSync(indexPath, html, 'utf8');
 }
 

@@ -1,6 +1,6 @@
 {
   "brand": "Kilordle",
-  "siteUrl": "https://jonesnxt.github.io/kilordle",
+  "siteUrl": "https://allenzlink.github.io/Kilordle",
   "tagline": "A thousand Wordles at once",
   "nav": [
     {
@@ -70,7 +70,7 @@
           },
           {
             "label": "Original GitHub",
-            "href": "https://github.com/jonesnxt/kilordle"
+            "href": "https://github.com/AllenZLink/Kilordle"
           }
         ]
       }
@@ -78,7 +78,7 @@
     "legal": [
       "© 2026 Kilordle",
       "Wordle-inspired browser puzzle",
-      "Original game by jones"
+      "Original game by AllenZlink"
     ]
   }
 }

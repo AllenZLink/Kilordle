@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/about/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/about/</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/contact/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/contact/</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/terms/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/terms/</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/privacy/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/privacy/</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jonesnxt.github.io/kilordle/changelog/</loc>
+    <loc>https://allenzlink.github.io/Kilordle/changelog/</loc>
     <priority>0.5</priority>
   </url>
 </urlset>

@@ -1,46 +1,146 @@
-# Getting Started with Create React App
+# Kilordle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kilordle is a browser word game where one five-letter guess is played across 1000 Wordle-style boards at the same time. Each guess updates every active puzzle, solved words leave the remaining pool, and the goal is to clear all boards with as few guesses as possible.
 
-## Available Scripts
+You can play this game at [kilordle](https://www.kilordle.net/)
 
-In the project directory, you can run:
+This project is based on and references the original Kilordle project by Jones NXT:
+https://github.com/jonesnxt/kilordle
 
-### `npm start`
+## What Changed
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This version keeps the original game experience client-rendered in React, while adding a static site layer around it.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Main improvements:
 
-### `npm test`
+- Added a static header and footer outside the original game root.
+- Kept the game mounted at `<div id="root"></div>` so the original React game remains isolated.
+- Added static homepage content for how to play, strategy, and FAQ.
+- Added a first-visit in-game tutorial carousel with four slides.
+- Added static pages for About, Contact, Terms of Service, Privacy Policy, and Change Log.
+- Added sitemap and robots.txt generation.
+- Added homepage JSON-LD for `WebPage`, `FAQPage`, and `BreadcrumbList`.
+- Reworked responsive header and footer layouts for desktop and mobile.
+- Removed unused local experiment folders: `subsecond/` and `prettier-plugin/`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+The project now has two layers:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Game layer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   The original game is still a Create React App application under `src/`. It renders on the client into `#root`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Static site layer
 
-### `npm run eject`
+   The static site lives under `static-site/`. It uses React components with `react-dom/server` at build time to generate static HTML into `public/`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Important paths:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `src/` - client-rendered game code
+- `static-site/components/` - build-time React components for static content
+- `static-site/content/` - JSON content source for static pages
+- `static-site/render.ts` - static HTML, sitemap, and homepage JSON-LD generator
+- `public/index.html` - homepage template with static insertion markers
+- `public/static-site.css` - static site styles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Tech Stack
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- React 17
+- TypeScript
+- Create React App / `react-scripts`
+- styled-components for the original game UI
+- `react-dom/server` for build-time static rendering
+- `tsx` for running the static TypeScript renderer
+- JSON content files for editable static page copy
 
-## Learn More
+## Local Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install
+```
+
+Start the dev server:
+
+```bash
+npm start
+```
+
+The `prestart` script runs automatically before the dev server:
+
+```bash
+tsx static-site/render.ts
+```
+
+That regenerates the static homepage content, static pages, sitemap, and JSON-LD before React starts.
+
+## Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+The `prebuild` script also runs the static renderer first. The final static site is emitted to:
+
+```text
+build/
+```
+
+The build includes:
+
+- `/` - homepage with the original game mounted at `#root`
+- `/about/`
+- `/contact/`
+- `/terms/`
+- `/privacy/`
+- `/changelog/`
+- `/sitemap.xml`
+- `/robots.txt`
+
+## Deployment
+
+This project deploys as static files. After running:
+
+```bash
+npm run build
+```
+
+upload the contents of `build/` to any static hosting service, such as GitHub Pages, Netlify, Vercel static hosting, Cloudflare Pages, or an Nginx static directory.
+
+The current site URL is configured in:
+
+```text
+static-site/content/site.json
+```
+
+Update `siteUrl` before deploying to a different domain. The sitemap and JSON-LD use that value.
+
+## Content Editing
+
+Most public-facing static text is editable from JSON:
+
+- Homepage content: `static-site/content/home.json`
+- Site navigation/footer/site URL: `static-site/content/site.json`
+- Static pages: `static-site/content/pages/*.json`
+
+After editing content, run:
+
+```bash
+npm run build
+```
+
+or:
+
+```bash
+npx tsx static-site/render.ts
+```
+
+## Notes
+
+The original game is still client-rendered. Static content around it is generated at build time so it exists directly in the HTML source.
+
+The project may show existing CRA lint warnings during build. They are inherited from the original game code and do not currently block production builds.
